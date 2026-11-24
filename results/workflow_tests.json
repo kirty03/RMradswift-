@@ -1,0 +1,32 @@
+{
+  "n_studies": 9459,
+  "mean_tat_h": 26.66175071360609,
+  "baseline_vs_6h": {
+    "test": "one-sample t-test, H1: mean TAT > 6 h",
+    "t": 239.4821859672868,
+    "p": 0.0
+  },
+  "tat_by_modality": {
+    "group_means_h": {
+      "CT": 26.42,
+      "MRI": 27.0,
+      "X-ray": 26.71
+    },
+    "anova_F": 2.062691909663057,
+    "anova_p": 0.12716852628215514,
+    "kruskal_H": 4.002706752763673,
+    "kruskal_p": 0.1351522475466788,
+    "eta_squared": 0.00043608130462860424
+  },
+  "tat_by_priority": {
+    "group_means_h": {
+      "Routine": 28.02,
+      "Urgent": 21.11
+    },
+    "anova_F": 1136.8309082192811,
+    "anova_p": 1.9273706326169156e-235,
+    "kruskal_H": 1058.66409200621,
+    "kruskal_p": 3.1854077462092396e-232,
+    "eta_squared": 0.10731065259284679
+  }
+}

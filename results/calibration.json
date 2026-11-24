@@ -1,0 +1,5 @@
+{
+  "reading_end_hour": 14.03,
+  "target_queue_wait_h": 10.33,
+  "note": "Calibrated by bisection in workflow_sim.calibrate_reading_end()"
+}

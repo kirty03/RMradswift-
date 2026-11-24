@@ -1,0 +1,45 @@
+# RadSwift workflow simulation: every number the simulator uses.
+# Nothing here is hospital data. Each value is marked:
+#   [assumed]     chosen by the team, reason given
+#   [calibrated]  set automatically so the baseline matches its target
+#   [measured]    taken from our own model evaluation (results/metrics.json)
+#   [cited]       taken from a published source
+
+department:
+  n_days: 30                  # [assumed] length of one simulated run
+  studies_per_day: 334        # [assumed] about 10,000 studies in 30 days
+  warmup_days: 2              # [assumed] first days are dropped so the queue starts realistic
+  # [assumed] share of a day's scans completed in each hour 0..23 (busiest 08:00-18:00)
+  hourly_arrival_share: [0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.03, 0.03,
+                         0.068, 0.068, 0.068, 0.068, 0.068, 0.068, 0.068, 0.068, 0.068, 0.068,
+                         0.035, 0.035, 0.035, 0.035, 0.024, 0.024]
+  modality_share: {X-ray: 0.60, CT: 0.28, MRI: 0.12}   # [assumed] X-ray is the most common exam
+  urgent_share: 0.20          # [assumed]
+  chest_share_of_xray: 0.50   # [assumed] our model only reads chest X-rays
+  abnormal_prevalence: 0.626  # [measured] share of abnormal studies among the 3,111 Indiana studies we use (Step 3)
+  # Baseline stage means in hours. Our Step-2 breakdown (3.5, 8.0, 4.0, 2.5, 2.6 = the 20.6 h gap)
+  # multiplied by 26.6/20.6 so the five stages add up to the assumed 26.6 h baseline. [assumed]
+  stage_mean_h: {acquisition: 4.52, queue: 10.33, interpretation: 5.17, finalization: 3.23, distribution: 3.36}
+  duration_cv: 0.6            # [assumed] spread of the random stage durations
+  urgent_lag_factor: 0.6      # [assumed] urgent studies move faster through the non-queue stages
+  radiologists: 11            # [assumed] radiologists reading during the daily session
+  reading_start_hour: 8.0     # [assumed]
+  reading_end_hour: 14.0      # [calibrated] replaced by results/calibration.json after Step 1
+  read_minutes: {X-ray: 4.0, CT: 15.0, MRI: 25.0}   # [assumed] hands-on minutes per study
+  read_cv: 0.5                # [assumed]
+  workload_scale: 1.0         # multiplies every read time; only changed in sensitivity runs
+
+scenario_defaults:            # all off = baseline
+  ai_triage: false            # reorder the worklist by the AI abnormal flag
+  triage_sensitivity: 0.75    # placeholder; Step 6 uses the [measured] value when available
+  triage_specificity: 0.75    # placeholder; Step 6 uses the [measured] value when available
+  ai_draft: false             # AI drafts chest X-ray reports
+  draft_all_modalities: false # hypothetical: drafts for every study
+  draft_acceptance: 0.60      # placeholder; Step 6 uses the [measured] proxy when available
+  read_time_reduction: 0.155  # [cited] Huang et al. 2025, JAMA Network Open: 15.5% efficiency gain
+  rejected_draft_penalty: 0.05   # [assumed] a discarded draft costs a little extra reading time
+  reporting_lag_reduction: 0.0   # [assumed] accepted drafts only; used in scenario S4
+  finalization_reduction: 0.0    # [assumed] accepted drafts only; used in scenario S4
+  distribution_reduction: 0.0    # [assumed] all studies (automatic sending); used in scenario S4
+  evening_staff: 0            # radiologists from end of session to midnight (24/7 scenario)
+  night_staff: 0              # radiologists from midnight to start of session (24/7 scenario)

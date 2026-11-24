@@ -1,0 +1,15 @@
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+pyyaml
+pillow
+torch
+torchvision
+transformers
+sentencepiece
+nltk
+rouge-score
+streamlit
+pytest

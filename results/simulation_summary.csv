@@ -1,0 +1,8 @@
+scenario,acquisition_h,queue_h,interpretation_h,finalization_h,distribution_h,tat_h,abnormal_chest_queue_h,normal_chest_queue_h,tat_change_h,ci95,share_of_gap_closed_pct,reaches_6h_target,model_numbers_source
+S0 Baseline,4.51,10.36,5.18,3.23,3.36,26.66,10.41,10.38,,,,,placeholder
+S1 AI triage only,4.51,10.25,5.18,3.23,3.36,26.54,9.6,10.16,-0.11,"[-0.11, -0.11]",0.5,False,placeholder
+S2 AI drafting only (evidence),4.51,10.34,5.18,3.23,3.36,26.63,10.39,10.36,-0.02,"[-0.02, -0.02]",0.1,False,placeholder
+S3 RadSwift (evidence only),4.51,10.23,5.18,3.23,3.36,26.52,9.59,10.14,-0.14,"[-0.14, -0.13]",0.7,False,placeholder
+S4 RadSwift + assumed workflow gains,4.51,10.23,4.95,3.09,1.68,24.46,9.59,10.14,-2.19,"[-2.20, -2.19]",10.6,False,placeholder
+S5 24/7 radiologist cover,4.51,1.47,5.18,3.23,3.36,17.76,1.47,1.48,-8.89,"[-8.92, -8.86]",43.1,False,placeholder
+S6 Hypothetical: drafts for all modalities,4.51,10.12,5.17,3.23,3.36,26.4,9.53,10.04,-0.25,"[-0.26, -0.25]",1.2,False,placeholder

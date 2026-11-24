@@ -1,0 +1,53 @@
+{
+  "model_numbers_source": "placeholder",
+  "model_numbers": {},
+  "replications": 30,
+  "S1 AI triage only": {
+    "mean_difference_h": -0.11258778737453608,
+    "ci95_low": -0.11473444678016287,
+    "ci95_high": -0.11044112796890929,
+    "paired_t_p": 2.970246938939407e-39,
+    "target_6h_p": 1.0,
+    "reaches_6h_target": false
+  },
+  "S2 AI drafting only (evidence)": {
+    "mean_difference_h": -0.020883134005554044,
+    "ci95_low": -0.021730553052885987,
+    "ci95_high": -0.020035714958222102,
+    "paired_t_p": 8.547603258228091e-30,
+    "target_6h_p": 1.0,
+    "reaches_6h_target": false
+  },
+  "S3 RadSwift (evidence only)": {
+    "mean_difference_h": -0.13700975839219373,
+    "ci95_low": -0.13974817983633955,
+    "ci95_high": -0.1342713369480479,
+    "paired_t_p": 1.1617390400551786e-38,
+    "target_6h_p": 1.0,
+    "reaches_6h_target": false
+  },
+  "S4 RadSwift + assumed workflow gains": {
+    "mean_difference_h": -2.191465779488204,
+    "ci95_low": -2.196762537106059,
+    "ci95_high": -2.1861690218703496,
+    "paired_t_p": 2.9853039454053785e-65,
+    "target_6h_p": 1.0,
+    "reaches_6h_target": false
+  },
+  "S5 24/7 radiologist cover": {
+    "mean_difference_h": -8.892310175329012,
+    "ci95_low": -8.922036958138703,
+    "ci95_high": -8.862583392519321,
+    "paired_t_p": 3.627791666342633e-61,
+    "target_6h_p": 1.0,
+    "reaches_6h_target": false
+  },
+  "S6 Hypothetical: drafts for all modalities": {
+    "mean_difference_h": -0.2526740504472226,
+    "ci95_low": -0.2566224799306471,
+    "ci95_high": -0.24872562096379805,
+    "paired_t_p": 9.375379665604887e-42,
+    "target_6h_p": 1.0,
+    "reaches_6h_target": false
+  }
+}
